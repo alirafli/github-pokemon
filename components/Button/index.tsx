@@ -2,21 +2,21 @@ import React from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
-type ButtonProps = {
+type Props = {
   className?: string;
   border?: string;
   to: string;
   children: React.ReactNode;
 };
 
-type Border = {
+type Variant = {
   [key: string]: string;
 };
 
 const STYLE: string =
   "mx-2 rounded-md px-3 py-1 hover:text-gray-300 transition ease-in-out";
 
-const BORDER: Border = {
+const BORDER: Variant = {
   none: "",
   border1: " border-2 border-gray-700",
 };
@@ -27,7 +27,7 @@ const Button = ({
   to = "/",
   children = "your text",
   ...other
-}: ButtonProps) => {
+}: Props) => {
   return (
     <Link href={to}>
       <button
