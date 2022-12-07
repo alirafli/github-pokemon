@@ -1,6 +1,7 @@
 import { ATagButton } from "../../Button";
 import Text from "../../Text";
 import { userDetail } from "../../../data";
+import Image from "next/image";
 
 type Props = {
   login: string;
@@ -17,11 +18,16 @@ export const UserCard = ({
   return (
     <div className="my-5 border-gray-600 border-b py-2">
       <div className="flex">
-        <img
+       <div>
+       <Image
+          loader={() => avatar_url}
           src={avatar_url}
+          width={35}
+          height={35}
           alt="profile picture"
-          className="w-6 h-6 rounded-full"
+          className="rounded-full"
         />
+       </div>
         <div className="ml-2 pt-1">
           <ATagButton to={html_url} className="flex">
             <Text
@@ -39,8 +45,12 @@ export const UserCard = ({
               {login}
             </Text>
           </ATagButton>
-          <Text variant="p2" className="my-2">{userData.bio}</Text>
-          <Text variant="p3" className="text-white/40">{userData.location}</Text>
+          <Text variant="p2" className="my-2">
+            {userData.bio}
+          </Text>
+          <Text variant="p3" className="text-white/40">
+            {userData.location}
+          </Text>
         </div>
       </div>
     </div>

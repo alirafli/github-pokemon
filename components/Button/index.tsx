@@ -48,7 +48,7 @@ export const ATagButton = ({
   ...other
 }: Props) => {
   return (
-    <a href={to} target="_blank">
+    <a href={to} target="_blank" rel="noreferrer">
       <button
         className={classNames(BORDER[border], className)}
         {...other}
