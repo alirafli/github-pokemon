@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Text, Meta } from "../components";
+import { Meta } from "../components";
+import Image from "next/image";
+import UNDERCONSTRUCTION from "../public/images/Under_construction.svg";
 
 const ComingSoon = () => {
   const router = useRouter();
@@ -8,14 +10,19 @@ const ComingSoon = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push("/");
-    }, 1500);
+    }, 2000);
   }, []);
   return (
     <>
       <Meta subTitle="Coming Soon" />
-      <div>
-        <Text>Coming Soon</Text>
-      </div>
+      <main className="w-fit mx-auto">
+        <Image
+          src={UNDERCONSTRUCTION}
+          alt="Picture of the author"
+          width={500}
+          height={500}
+        />
+      </main>
     </>
   );
 };
