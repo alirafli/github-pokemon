@@ -36,6 +36,9 @@ type UserDetailData = {
   location: string;
   bio: string;
 };
+
+type TopicsData = { name: string }[];
+
 export const repoResult: RepoResultData = [
   {
     description: "💮 ALIS Media - Frontend Application",
@@ -59,3 +62,5 @@ export const userDetail: UserDetailData = {
   location: "Somerville, MA",
   bio: "Senior SWE working on HubSpot's Frontend Platform",
 };
+
+export const Topics: TopicsData = [{ name: "aliyun" }];

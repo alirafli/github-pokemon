@@ -4,7 +4,7 @@ import Text from "./Text";
 import Input from "./Input";
 import Navbar from "./Navbar";
 import LeftBox from "./LeftBox";
-import { CodeCard, RepoCard, UserCard } from "./Card";
+import { CodeCard, RepoCard, UserCard, TopicCard } from "./Card";
 
 export {
   Meta,
@@ -17,4 +17,5 @@ export {
   RepoCard,
   UserCard,
   ATagButton,
+  TopicCard,
 };
