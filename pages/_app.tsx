@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 
 type ComponentWithPageLayout = AppProps & {
   Component: AppProps["Component"] & {
-    PageLayout?: React.ComponentType;
+    PageLayout?: React.ComponentType<any>
   };
 };
 
