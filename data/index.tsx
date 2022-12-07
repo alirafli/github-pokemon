@@ -1,44 +1,18 @@
-type Data = {
-  name: string;
-  to: string;
-}[];
+import {
+  RepoResultData,
+  TopicsData,
+  UserDetailData,
+  UsersResultData,
+  SearchListData,
+} from "../types/dummyData";
 
-export const searchList: Data = [
+export const searchList: SearchListData = [
   { name: "Repositories", to: "/search/repositories" },
-  { name: "Code", to: "/search/code" },
-  { name: "Commits", to: "/search/commits" },
-  { name: "Issues", to: "/search/issues" },
-  { name: "Discussions", to: "/search/discussions" },
-  { name: "Packages", to: "/search/packages" },
-  { name: "Marketplace", to: "/search/marketplace" },
   { name: "Topics", to: "/search/topics" },
-  { name: "Wikis", to: "/search/wikis" },
   { name: "Users", to: "/search/users" },
 ];
 
 //dummy data
-type RepoResultData = {
-  description: string;
-  full_name: string;
-  topics: string[];
-  stargazers_count: number;
-  html_url: string;
-}[];
-
-type UsersResultData = {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}[];
-
-type UserDetailData = {
-  name: string;
-  location: string;
-  bio: string;
-};
-
-type TopicsData = { name: string }[];
-
 export const repoResult: RepoResultData = [
   {
     description: "💮 ALIS Media - Frontend Application",

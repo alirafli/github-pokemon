@@ -5,7 +5,7 @@ type Props = {
   variant?: "h1" | "h2" | "p1" | "p2" | "p3";
   weight?: "bold" | "semiBold" | "normal" | "light";
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 type CustomStyle = {
