@@ -8,11 +8,11 @@ type Props = {
   children: React.ReactNode;
 };
 
-type Variant = {
+type CustomStyle = {
   [key: string]: string;
 };
 
-const VARIANT: Variant = {
+const VARIANT: CustomStyle = {
   h1: "text-2xl md:text-3xl lg:text-4xl",
   h2: "text-lg md:text-xl lg:text-2xl",
   p1: "text-base md:text-lg lg:text-xl",
@@ -20,7 +20,7 @@ const VARIANT: Variant = {
   p3: "text-xs",
 };
 
-const WEIGHT: Variant = {
+const WEIGHT: CustomStyle = {
   bold: "font-bold",
   semiBold: "font-semibold",
   normal: "font-normal",
