@@ -11,7 +11,7 @@ const ComingSoon = () => {
     setTimeout(() => {
       router.push("/");
     }, 2000);
-  }, []);
+  }, [router]);
   return (
     <>
       <Meta subTitle="Coming Soon" />
