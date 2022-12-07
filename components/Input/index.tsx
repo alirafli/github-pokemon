@@ -6,7 +6,7 @@ type Props = {
 }& React.InputHTMLAttributes<HTMLInputElement>;
 
 const STYLE: string =
-  "bg-primary px-2 py-1 rounded-md border border-gray-700 w-60 mx-2";
+  "bg-primary px-2 py-1 rounded-md border border-gray-700";
 
 const Input = ({
   className,

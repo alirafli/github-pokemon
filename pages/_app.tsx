@@ -1,6 +1,26 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import { Navbar } from "../components";
+import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+type ComponentWithPageLayout = AppProps & {
+  Component: AppProps["Component"] & {
+    PageLayout?: React.ComponentType;
+  };
+};
+
+function App({ Component, pageProps }: ComponentWithPageLayout) {
+  return (
+    <div>
+      <Navbar />
+      {Component.PageLayout ? (
+        <Component.PageLayout>
+          <Component {...pageProps} />
+        </Component.PageLayout>
+      ) : (
+        <Component {...pageProps} />
+      )}
+    </div>
+  );
 }
+
+export default App;

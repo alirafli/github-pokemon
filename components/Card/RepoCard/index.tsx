@@ -17,7 +17,7 @@ export const RepoCard = ({
   updated = "updated today",
 }: Props) => {
   return (
-    <div className="my-5 border-gray-600 border-b py-2">
+    <div className="mb-5 border-gray-600 border-b">
       <Text variant="p1">{title}</Text>
       <Text variant="p2">{desc}</Text>
       <div className="mt-1">
@@ -34,7 +34,7 @@ export const RepoCard = ({
         ))}
       </div>
       <div className="flex text-gray-500 mt-2">
-        <Text variant="p3">{stars}</Text>
+        <Text variant="p3" className="mr-3">{stars}</Text>
         <Text variant="p3">{updated}</Text>
       </div>
     </div>

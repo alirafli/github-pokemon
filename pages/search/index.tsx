@@ -1,21 +1,15 @@
-import { LeftBox } from "../../components/";
-import { searchList } from "../../data";
+import SearchLayout from "../../layouts/search" 
 
-type Props = {
-  children: string;
-};
-
-const Search = ({ children = "..." }: Props) => {
+const Search = () => {
   return (
-    <div className="">
-      <div className="flex px-64">
-        <div className="mr-7 q-3/12">
-          <LeftBox data={searchList} />
-        </div>
-        <div className="w-9/12">{children}</div>
-      </div>
-    </div>
+    <>
+      <main className="">
+        Nothing Here
+      </main>
+    </>
   );
 };
+
+Search.PageLayout = SearchLayout;
 
 export default Search;

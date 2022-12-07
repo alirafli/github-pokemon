@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Text, Meta } from "../components";
+
 const ComingSoon = () => {
   const router = useRouter();
 
