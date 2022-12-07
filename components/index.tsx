@@ -1,5 +1,5 @@
 import Meta from "./Meta";
-import Button from "./Button";
+import { Button, ATagButton } from "./Button";
 import Text from "./Text";
 import Input from "./Input";
 import Navbar from "./Navbar";
@@ -16,4 +16,5 @@ export {
   CodeCard,
   RepoCard,
   UserCard,
+  ATagButton,
 };

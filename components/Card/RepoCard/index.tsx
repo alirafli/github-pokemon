@@ -1,41 +1,49 @@
-import Button from "../../Button";
+import { ATagButton } from "../../Button";
 import Text from "../../Text";
 
 type Props = {
-  title: string;
+  fullName: string;
   desc: string;
-  topic: string[];
-  stars: number;
-  updated: string;
+  topics: string[];
+  stargazers_count: number;
+  html_url: string;
 };
 
 export const RepoCard = ({
-  title = "your title",
+  fullName = "your title",
   desc = "your description",
-  topic = ["topic 1", "topic 2"],
-  stars = 3.1,
-  updated = "updated today",
+  topics = ["topic 1", "topic 2"],
+  stargazers_count = 179,
+  html_url = "",
 }: Props) => {
   return (
     <div className="mb-5 border-gray-600 border-b">
-      <Text variant="p1">{title}</Text>
+      <Text variant="p1">
+        <a
+          href={html_url}
+          className="no-underline hover:underline text-blue-400 font-semibold"
+        >
+          {fullName}
+        </a>
+      </Text>
       <Text variant="p2">{desc}</Text>
       <div className="mt-1">
-        {topic.map((data, index) => (
-          <Button
+        {topics.map((data, index) => (
+          <ATagButton
             key={index}
-            to="/"
-            className="bg-blue-900 rounded-full ml-0 mr-4 text-blue-300"
+            className="bg-blue-900 rounded-full ml-0 mr-2 mb-2 text-blue-300"
+            to={`https://github.com/topics/${data}`}
           >
             <Text weight="semiBold" variant="p3">
               {data}
             </Text>
-          </Button>
+          </ATagButton>
         ))}
       </div>
       <div className="flex text-gray-500 mt-2">
-        <Text variant="p3" className="mr-3">{stars}</Text>
-        <Text variant="p3">{updated}</Text>
+        <Text variant="p3" className="mr-3">
+          {stargazers_count}
+        </Text>
       </div>
     </div>
   );

@@ -21,22 +21,15 @@ type RepoResultData = {
   description: string;
   full_name: string;
   topics: string[];
-  score: number;
-  updated: string;
+  stargazers_count: number;
+  html_url: string;
 }[];
 export const repoResult: RepoResultData = [
   {
-    description: "Lorem Ipsum",
-    full_name: "John Doe",
-    topics: ["topics 1", "topics 2"],
-    score: 12,
-    updated: "updated today",
-  },
-  {
-    description: "Lorem Ipsum",
-    full_name: "Mohammad Ali Rafli",
-    topics: ["topics 1", "topics 2"],
-    score: 12,
-    updated: "updated today",
+    description: "💮 ALIS Media - Frontend Application",
+    full_name: "AlisProject/frontend-application",
+    topics: ["api-gateway", "nuxt", "serverless", "spa", "vue"],
+    stargazers_count: 179,
+    html_url: "https://github.com/AlisProject/frontend-application",
   },
 ];

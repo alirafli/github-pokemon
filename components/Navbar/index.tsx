@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Input from "../Input";
-import Button from "../Button";
+import {Button} from "../Button";
 import { useRouter } from "next/router";
 import LOGO from "../../public/images/github.svg";
 

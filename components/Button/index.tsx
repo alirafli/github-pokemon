@@ -21,7 +21,7 @@ const BORDER: Variant = {
   border1: " border-2 border-gray-700",
 };
 
-const Button = ({
+export const Button = ({
   className,
   border = "none",
   to = "/",
@@ -40,4 +40,21 @@ const Button = ({
   );
 };
 
-export default Button;
+export const ATagButton = ({
+  className,
+  border = "none",
+  to = "/",
+  children = "your text",
+  ...other
+}: Props) => {
+  return (
+    <a href={to} target="_blank">
+      <button
+        className={classNames(STYLE, BORDER[border], className)}
+        {...other}
+      >
+        {children}
+      </button>
+    </a>
+  );
+};
