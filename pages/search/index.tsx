@@ -1,7 +1,11 @@
 import { LeftBox } from "../../components/";
 import { searchList } from "../../data";
 
-const Search = ({ children = "..." }) => {
+type Props = {
+  children: string;
+};
+
+const Search = ({ children = "..." }: Props) => {
   return (
     <div className="">
       <div className="flex px-64">
