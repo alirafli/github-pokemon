@@ -24,6 +24,18 @@ type RepoResultData = {
   stargazers_count: number;
   html_url: string;
 }[];
+
+type UsersResultData = {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+}[];
+
+type UserDetailData = {
+  name: string;
+  location: string;
+  bio: string;
+};
 export const repoResult: RepoResultData = [
   {
     description: "💮 ALIS Media - Frontend Application",
@@ -33,3 +45,17 @@ export const repoResult: RepoResultData = [
     html_url: "https://github.com/AlisProject/frontend-application",
   },
 ];
+
+export const usersResult: UsersResultData = [
+  {
+    login: "Ali",
+    avatar_url: "https://avatars.githubusercontent.com/u/515861?v=4",
+    html_url: "https://github.com/ali",
+  },
+];
+
+export const userDetail: UserDetailData = {
+  name: "Ali Ukani",
+  location: "Somerville, MA",
+  bio: "Senior SWE working on HubSpot's Frontend Platform",
+};

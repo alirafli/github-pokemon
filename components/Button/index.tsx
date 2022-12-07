@@ -50,7 +50,7 @@ export const ATagButton = ({
   return (
     <a href={to} target="_blank">
       <button
-        className={classNames(STYLE, BORDER[border], className)}
+        className={classNames(BORDER[border], className)}
         {...other}
       >
         {children}

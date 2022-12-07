@@ -31,7 +31,7 @@ export const RepoCard = ({
         {topics.map((data, index) => (
           <ATagButton
             key={index}
-            className="bg-blue-900 rounded-full ml-0 mr-2 mb-2 text-blue-300"
+            className="bg-blue-900/40 rounded-full px-3 py-1 mr-2 mb-2 text-blue-400"
             to={`https://github.com/topics/${data}`}
           >
             <Text weight="semiBold" variant="p3">
