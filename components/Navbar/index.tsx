@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import Input from "../Input";
-import {Button} from "../Button";
+import { Button } from "../Button";
 import { useRouter } from "next/router";
 import LOGO from "../../public/images/github.svg";
-
+import { PokeButton } from "../Button/PokeButton";
 
 const data = [
   {
@@ -41,17 +41,16 @@ const Navbar = () => {
             <p>{data.name}</p>
           </Link>
         ))}
+        <Link href="/pokemon">
+          <PokeButton />
+        </Link>
       </div>
       <div className="flex items-center">
-        {router.pathname !== "/" ? (
-          <Input
-            placeHolder="Search GitHub"
-          />
-        ) : (
-          ""
-        )}
-        <Button to="/">Sign in</Button>
-        <Button to="/" border="border1">Sign up</Button>
+        {router.pathname !== "/" ? <Input placeHolder="Search GitHub" /> : ""}
+        <Button to="/coming-soon">Sign in</Button>
+        <Button to="/coming-soon" border="border1">
+          Sign up
+        </Button>
       </div>
     </nav>
   );
