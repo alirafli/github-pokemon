@@ -2,8 +2,8 @@ import React from "react";
 import classNames from "classnames";
 
 type Props = {
-  variant?: string;
-  weight?: string;
+  variant?: "h1" | "h2" | "p1" | "p2" | "p3";
+  weight?: "bold" | "semiBold" | "normal" | "light";
   className?: string;
   children: React.ReactNode;
 };

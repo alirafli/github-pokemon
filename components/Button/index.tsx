@@ -7,7 +7,7 @@ type Props = {
   border?: string;
   to: string;
   children: React.ReactNode;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 type Variant = {
   [key: string]: string;
