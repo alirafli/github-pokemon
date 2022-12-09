@@ -5,6 +5,8 @@ import { Button } from "../Button";
 import { useRouter } from "next/router";
 import LOGO from "../../public/images/github.svg";
 import { PokeButton } from "../Button/PokeButton";
+import { useState } from "react";
+import { UseSearchContext } from "../../context/SearchContext";
 
 const data = [
   {
@@ -26,6 +28,12 @@ const data = [
 ];
 
 const Navbar = () => {
+  const [changeSearch, setChangeSearch] = useState("");
+  const { setSearch } = UseSearchContext();
+
+  const handleKeyDown = (e: any) => {
+    e.key === "Enter" && setSearch(changeSearch);
+  };
   const router = useRouter();
   return (
     <nav className="bg-secondary flex items-center justify-between px-24 py-4 mb-7">
@@ -46,7 +54,15 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center">
-        {router.pathname !== "/" ? <Input placeHolder="Search GitHub" /> : ""}
+        {router.pathname !== "/" ? (
+          <Input
+            placeHolder="Search GitHub"
+            onKeyDown={handleKeyDown}
+            onChange={(e) => setChangeSearch(e.target.value)}
+          />
+        ) : (
+          ""
+        )}
         <Button to="/coming-soon">Sign in</Button>
         <Button to="/coming-soon" border="border1">
           Sign up
