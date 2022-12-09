@@ -1,27 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { RepoCard, Text } from "../../components";
 import SearchLayout from "../../layouts/search";
-import { FetchRepositories } from "../api/swr/FetchRepositories";
 import { Item } from "../api/interface/search/repositories";
+import { UseSearchContext } from "../../context/SearchContext";
+import basePoint from "../api/basePoint";
 
 const Repositories = () => {
-  const { data, isError } = FetchRepositories();
-  // const [repoResult, setRepoResult] = useState<Item[]>([]);
+  const { search } = UseSearchContext();
+  const [repos, setRepos] = useState<Item[]>([]);
 
-  // useEffect(() => {
-  //   setRepoResult(data.items);
-  // }, [data]);
+  const fetchData = useCallback(async () => {
+    try {
+      const res = await basePoint.get(
+        `search/repositories?q=${search}&per_page=6`
+      );
 
-  if (isError) return "An error has occurred.";
-  if (!data) return "Loading data...";
-  if (!data.items) return "Loading items..."
+      console.log(res.data);
+      setRepos(res.data.items);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [search]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
   return (
     <div>
       <Text variant="p1" weight="semiBold" className="mb-5">
-        {data.total_count} repository results
+        1 repository results
       </Text>
 
-      {data.items.map((data: Item) => (
+      {repos.map((data: Item) => (
         <RepoCard
           key={data.id}
           desc={data.description}

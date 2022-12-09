@@ -22,6 +22,6 @@ export const SearchContextProvider = ({ children }: UserContextProviderProps) =>
   )
 }
 
-export function useSearchContext() {
+export function UseSearchContext() {
   return useContext(SearchContext);
 }

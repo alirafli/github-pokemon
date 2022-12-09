@@ -1,12 +1,10 @@
 import React from "react";
 import { Button, Input, Meta, Text } from "../components";
 import { IndexLayout } from "../layouts";
-import { useSearchContext } from "../context/SearchContext";
-import { FetchRepositories } from "./api/swr/FetchRepositories";
+import { UseSearchContext } from "../context/SearchContext";
 
 function Home() {
-  const { setSearch } = useSearchContext();
-  const { data, isError } = FetchRepositories();
+  const { setSearch } = UseSearchContext();
   return (
     <>
       <Meta subTitle="Home" />
@@ -15,11 +13,12 @@ function Home() {
           Search more than <b>X</b> repositories
         </Text>
         <div className="flex mt-3">
-          <Input placeHolder="Search GitHub" className="w-80 mx-0 mr-3" onChange={(e) => setSearch(e.target.value)} />
-          <Button
-            to="/search/repositories"
-            border="border1"
-          >
+          <Input
+            placeHolder="Search GitHub"
+            className="w-80 mx-0 mr-3"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Button to="/search/repositories" border="border1">
             Search
           </Button>
         </div>

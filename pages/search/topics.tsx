@@ -1,28 +1,42 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Text, TopicCard } from "../../components";
 import SearchLayout from "../../layouts/search";
-import { FetchTopics } from "../api/swr/FetchTopics";
 import { Item } from "../api/interface/search/topics";
+import { UseSearchContext } from "../../context/SearchContext";
+import { fetchTopics } from "../api/swr/FetchTopics";
+import basePoint from "../api/basePoint";
 
-const Repositories = () => {
-  const { data, isError } = FetchTopics();
+const Topics = () => {
+  const { search } = UseSearchContext();
+  const [topics, setTopics] = useState<Item[]>([]);
 
-  if (isError) return "An error has occurred.";
-  if (!data) return "Loading data...";
-  if (!data.items) return "Loading items...";
+  const getTopics = useCallback(async () => {
+    try {
+      const res = await basePoint.get(`search/topics?q=${search}&per_page=6`);
+
+      console.log(res.data);
+      setTopics(res.data.items);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [search]);
+
+  useEffect(() => {
+    getTopics();
+  }, [getTopics]);
   return (
     <div>
       <Text variant="p1" weight="semiBold" className="mb-5">
-        {data.total_count} topic results
+        2 topic results
       </Text>
 
-      {data.items.map((data: Item, index: number) => (
+      {topics.map((data: Item, index: number) => (
         <TopicCard key={index} name={data.name} />
       ))}
     </div>
   );
 };
 
-Repositories.PageLayout = SearchLayout;
+Topics.PageLayout = SearchLayout;
 
-export default Repositories;
+export default Topics;
