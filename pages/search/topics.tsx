@@ -3,7 +3,6 @@ import { Text, TopicCard } from "../../components";
 import SearchLayout from "../../layouts/search";
 import { Item } from "../api/interface/search/topics";
 import { UseSearchContext } from "../../context/SearchContext";
-import { fetchTopics } from "../api/swr/FetchTopics";
 import basePoint from "../api/basePoint";
 
 const Topics = () => {
