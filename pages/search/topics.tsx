@@ -1,16 +1,22 @@
 import React from "react";
 import { Text, TopicCard } from "../../components";
-import { Topics } from "../../data";
 import SearchLayout from "../../layouts/search";
+import { FetchTopics } from "../api/swr/FetchTopics";
+import { Item } from "../api/interface/search/topics";
 
 const Repositories = () => {
+  const { data, isError } = FetchTopics();
+
+  if (isError) return "An error has occurred.";
+  if (!data) return "Loading data...";
+  if (!data.items) return "Loading items...";
   return (
     <div>
       <Text variant="p1" weight="semiBold" className="mb-5">
-        149,157 topic results
+        {data.total_count} topic results
       </Text>
 
-      {Topics.map((data, index) => (
+      {data.items.map((data: Item, index: number) => (
         <TopicCard key={index} name={data.name} />
       ))}
     </div>
