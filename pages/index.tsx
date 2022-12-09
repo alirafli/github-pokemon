@@ -16,7 +16,7 @@ function Home() {
       <Meta subTitle="Home" />
       <main className="">
         <Text variant="h2">
-          Search more than <b>X</b> repositories
+          Search Here
         </Text>
         <div className="flex mt-3">
           <Input
