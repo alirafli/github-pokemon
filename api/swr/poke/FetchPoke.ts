@@ -11,7 +11,7 @@ const fetcher = async () => {
 };
 
 export const FetchPoke = () => {
-  const { data, error } = useSWR(`getpoke`, fetcher);
+  const { data, error } = useSWR(`getPoke`, fetcher);
 
   return {
     data: data,
