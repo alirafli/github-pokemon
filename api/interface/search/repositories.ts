@@ -1,10 +1,10 @@
-export interface Root {
+export interface Repositories {
   total_count: number
   incomplete_results: boolean
-  items: Item[]
+  items: RepoProps[]
 }
 
-export interface Item {
+export interface RepoProps {
   id: number
   node_id: string
   name: string

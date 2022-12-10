@@ -1,10 +1,4 @@
-export interface Root {
-  total_count: number
-  incomplete_results: boolean
-  items: Item[]
-}
-
-export interface Item {
+export interface userDetail {
   login: string
   id: number
   node_id: string
@@ -23,5 +17,18 @@ export interface Item {
   received_events_url: string
   type: string
   site_admin: boolean
-  score: number
+  name: string
+  company: string
+  blog: string
+  location: string
+  email: any
+  hireable: any
+  bio: string
+  twitter_username: any
+  public_repos: number
+  public_gists: number
+  followers: number
+  following: number
+  created_at: string
+  updated_at: string
 }

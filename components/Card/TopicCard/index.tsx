@@ -15,7 +15,7 @@ export const TopicCard = ({ name }: Props) => {
         >
           #
         </Text>
-        <ATagButton to="https://github.com/topics/aadhi">
+        <ATagButton to={`https://github.com/topics/${name}`}>
           <Text
             variant="p2"
             className="text-blue-400 no-underline hover:underline"

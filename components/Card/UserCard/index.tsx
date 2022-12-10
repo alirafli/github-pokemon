@@ -1,9 +1,8 @@
 import { ATagButton } from "../../Button";
 import Text from "../../Text";
-import { userDetail } from "../../../data";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import basePoint from "../../../pages/api/basePoint";
+import { githubBasePoint } from "../../../api/basePoint";
 
 type Props = {
   login: string;
@@ -30,7 +29,7 @@ export const UserCard = ({
 
   const getUserDetail = useCallback(async () => {
     try {
-      const res = await basePoint.get(`users/${login}`);
+      const res = await githubBasePoint.get(`users/${login}`);
 
       console.log(res.data);
       setuserDetail(res.data);

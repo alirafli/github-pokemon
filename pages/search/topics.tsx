@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Text, TopicCard } from "../../components";
 import SearchLayout from "../../layouts/search";
-import { Item } from "../api/interface/search/topics";
 import { UseSearchContext } from "../../context/SearchContext";
-import basePoint from "../api/basePoint";
+import { githubBasePoint } from "../../api/basePoint";
+import { TopicsProps } from "../../api/interface/search/topics";
 
 const Topics = () => {
   const { search } = UseSearchContext();
-  const [topics, setTopics] = useState<Item[]>([]);
+  const [topics, setTopics] = useState([]);
 
   const getTopics = useCallback(async () => {
     try {
-      const res = await basePoint.get(`search/topics?q=${search}&per_page=6`);
+      const res = await githubBasePoint.get(`search/topics?q=${search}&per_page=6`);
 
       console.log(res.data);
       setTopics(res.data.items);
@@ -29,7 +29,7 @@ const Topics = () => {
         2 topic results
       </Text>
 
-      {topics.map((data: Item, index: number) => (
+      {topics.map((data: TopicsProps, index: number) => (
         <TopicCard key={index} name={data.name} />
       ))}
     </div>

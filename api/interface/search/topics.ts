@@ -1,10 +1,10 @@
-export interface Root {
+export interface Topics {
   total_count: number
   incomplete_results: boolean
-  items: Item[]
+  items: TopicsProps[]
 }
 
-export interface Item {
+export interface TopicsProps {
   name: string
   display_name: any
   short_description: any

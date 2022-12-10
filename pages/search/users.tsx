@@ -1,17 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { githubBasePoint } from "../../api/basePoint";
+import { userDetail } from "../../api/interface/search/userDetail";
 import { Text, UserCard } from "../../components";
 import { UseSearchContext } from "../../context/SearchContext";
 import SearchLayout from "../../layouts/search";
-import basePoint from "../api/basePoint";
-import { Item } from "../api/interface/search/users";
 
 const Users = () => {
   const { search } = UseSearchContext();
-  const [users, setUsers] = useState<Item[]>([]);
+  const [users, setUsers] = useState<userDetail[]>([]);
 
   const getUsers = useCallback(async () => {
     try {
-      const res = await basePoint.get(`search/users?q=${search}&per_page=6`);
+      const res = await githubBasePoint.get(
+        `search/users?q=${search}&per_page=6`
+      );
 
       console.log(res.data);
       setUsers(res.data.items);
@@ -28,7 +30,7 @@ const Users = () => {
       <Text variant="p1" weight="semiBold" className="mb-5">
         3 users
       </Text>
-      {users.map((data: Item, index: number) => (
+      {users.map((data: userDetail, index: number) => (
         <UserCard
           key={index}
           login={data.login}
