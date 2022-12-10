@@ -4,7 +4,7 @@ import { Poke } from "../../interface/poke/poke";
 
 const fetcher = async () => {
   const res = await pokeBasePoint.get<Poke>(
-    `pokemon?limit=10&offset=0`
+    `pokemon?limit=8&offset=0`
   );
 
   return res.data;
