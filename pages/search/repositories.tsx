@@ -11,11 +11,11 @@ const Repositories = () => {
   const { data, isError } = FetchRepos(search);
   if (isError) return <div>error</div>;
   if (!data) return <div>loading...</div>;
-
+  if (data.total_count === 0) return `there is no "${search}" Repositories`;
   return (
     <div>
       <Text variant="p1" weight="semiBold" className="mb-5">
-        1 repository results
+        repository results
       </Text>
 
       {data.items.map((data: RepoProps) => (

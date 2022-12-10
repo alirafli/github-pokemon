@@ -15,7 +15,7 @@ const Users = () => {
         `search/users?q=${search}&per_page=6`
       );
 
-      console.log(res.data);
+      // console.log(res.data);
       setUsers(res.data.items);
     } catch (error) {
       console.log(error);
@@ -25,10 +25,12 @@ const Users = () => {
   useEffect(() => {
     getUsers();
   }, [getUsers]);
+  if (users.length === 0) return `there is no "${search}" users`;
+
   return (
     <div>
       <Text variant="p1" weight="semiBold" className="mb-5">
-        3 users
+        users result
       </Text>
       {users.map((data: userDetail, index: number) => (
         <UserCard

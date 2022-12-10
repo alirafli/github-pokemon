@@ -11,9 +11,11 @@ const Topics = () => {
 
   const getTopics = useCallback(async () => {
     try {
-      const res = await githubBasePoint.get(`search/topics?q=${search}&per_page=6`);
+      const res = await githubBasePoint.get(
+        `search/topics?q=${search}&per_page=6`
+      );
 
-      console.log(res.data);
+      // console.log(res.data);
       setTopics(res.data.items);
     } catch (error) {
       console.log(error);
@@ -23,10 +25,11 @@ const Topics = () => {
   useEffect(() => {
     getTopics();
   }, [getTopics]);
+  if (topics.length === 0) return `there is no "${search}" topics`;
   return (
     <div>
       <Text variant="p1" weight="semiBold" className="mb-5">
-        2 topic results
+        topic results
       </Text>
 
       {topics.map((data: TopicsProps, index: number) => (
