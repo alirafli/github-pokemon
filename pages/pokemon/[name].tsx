@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { FetchPokeDetails } from "../../api/swr/poke/FetchPokeDetails";
 import Image from "next/image";
-import { NoLinkBtn, Text } from "../../components";
+import { Meta, NoLinkBtn, Text } from "../../components";
+import { FetchPokeDetails } from "../../api/swr";
 
 const PokeDetail = () => {
   const router = useRouter();
@@ -16,6 +16,7 @@ const PokeDetail = () => {
   if (!data) return <div>loading...</div>;
   return (
     <main className="w-7/12 mx-auto">
+      <Meta subTitle={`${pokeName}`} />
       <div className="flex items-center justify-center">
         <Image
           src={data.sprites.front_default}

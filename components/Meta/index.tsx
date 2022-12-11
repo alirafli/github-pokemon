@@ -21,7 +21,7 @@ const Meta = ({ title, subTitle, keywords, description }: HeaderProps) => {
 };
 
 Meta.defaultProps = {
-  title: "Github X Pokemon",
+  title: "GithubPoke",
   subTitle: "",
   keywords: "Github",
   description: "Clone github",

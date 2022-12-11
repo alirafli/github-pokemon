@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Result } from "../../api/interface/poke/poke";
-import { FetchPoke } from "../../api/swr/poke/FetchPoke";
 import { PokeCard } from "../../components/Card/PokeCard";
-import { Text, NoLinkBtn } from "../../components";
+import { Text, NoLinkBtn, Meta } from "../../components";
+import { FetchPoke } from "../../api/swr";
 
 const Pokemon = () => {
   const [page, setPage] = useState<number>(1);
@@ -20,6 +20,7 @@ const Pokemon = () => {
   if (!data) return <div>loading...</div>;
   return (
     <main className="w-9/12 mx-auto">
+      <Meta subTitle="Pokepedia" />
       <Text variant="h1" weight="semiBold">
         PokePedia
       </Text>

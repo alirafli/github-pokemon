@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NoLinkBtn, RepoCard, Text } from "../../components";
+import { Meta, NoLinkBtn, RepoCard, Text } from "../../components";
 import SearchLayout from "../../layouts/search";
 import { UseSearchContext } from "../../context/SearchContext";
 import { RepoProps } from "../../api/interface/search/repositories";
@@ -23,6 +23,8 @@ const Repositories = () => {
   if (data.total_count === 0) return `there is no "${search}" Repositories`;
   return (
     <div>
+      <Meta subTitle="Search-Repositories" />
+
       <Text variant="p1" weight="semiBold" className="mb-5">
         repository results
       </Text>

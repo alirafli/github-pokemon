@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Text, TopicCard } from "../../components";
+import { Meta, Text, TopicCard } from "../../components";
 import SearchLayout from "../../layouts/search";
 import { UseSearchContext } from "../../context/SearchContext";
 import { githubBasePoint } from "../../api/basePoint";
@@ -28,6 +28,7 @@ const Topics = () => {
   if (topics.length === 0) return `there is no "${search}" topics`;
   return (
     <div>
+      <Meta subTitle="Search-Topics" />
       <Text variant="p1" weight="semiBold" className="mb-5">
         topic results
       </Text>

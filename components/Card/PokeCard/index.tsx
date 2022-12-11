@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { FetchPokeDetails } from "../../../api/swr/poke/FetchPokeDetails";
 import Text from "../../Text";
 import Link from "next/link";
+import { FetchPokeDetails } from "../../../api/swr";
 
 type Props = {
   name: string;

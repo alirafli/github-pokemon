@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { githubBasePoint } from "../../api/basePoint";
 import { userDetail } from "../../api/interface/search/userDetail";
-import { Text, UserCard } from "../../components";
+import { Meta, Text, UserCard } from "../../components";
 import { UseSearchContext } from "../../context/SearchContext";
 import SearchLayout from "../../layouts/search";
 
@@ -29,6 +29,7 @@ const Users = () => {
 
   return (
     <div>
+      <Meta subTitle="Search-Users" />
       <Text variant="p1" weight="semiBold" className="mb-5">
         users result
       </Text>

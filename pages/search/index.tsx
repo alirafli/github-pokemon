@@ -1,11 +1,11 @@
-import SearchLayout from "../../layouts/search" 
+import { Meta } from "../../components";
+import SearchLayout from "../../layouts/search";
 
 const Search = () => {
   return (
     <>
-      <main className="">
-        Nothing Here
-      </main>
+      <Meta subTitle="Search" />
+      <main className="">Nothing Here</main>
     </>
   );
 };
