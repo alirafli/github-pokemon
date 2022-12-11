@@ -1,5 +1,5 @@
 import Meta from "./Meta";
-import { Button, ATagButton } from "./Button";
+import { Button, ATagButton, NoLinkBtn } from "./Button";
 import Text from "./Text";
 import Input from "./Input";
 import Navbar from "./Navbar";
@@ -18,4 +18,5 @@ export {
   UserCard,
   ATagButton,
   TopicCard,
+  NoLinkBtn,
 };

@@ -4,8 +4,8 @@ import Link from "next/link";
 
 type Props = {
   className?: string;
-  border?: string;
-  to: string;
+  border?: "none" | "border1";
+  to?: string;
   children: React.ReactNode;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -49,12 +49,23 @@ export const ATagButton = ({
 }: Props) => {
   return (
     <a href={to} target="_blank" rel="noreferrer">
-      <button
-        className={classNames(BORDER[border], className)}
-        {...other}
-      >
+      <button className={classNames(BORDER[border], className)} {...other}>
         {children}
       </button>
     </a>
+  );
+};
+
+export const NoLinkBtn = ({
+  className,
+  border = "none",
+  to = "/",
+  children = "your text",
+  ...other
+}: Props) => {
+  return (
+    <button className={classNames(STYLE, BORDER[border], className)} {...other}>
+      {children}
+    </button>
   );
 };
