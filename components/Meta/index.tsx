@@ -14,8 +14,19 @@ const Meta = ({ title, subTitle, keywords, description }: HeaderProps) => {
       <meta name="keywords" content={keywords} />
       <meta name="description" content={description} />
       <meta charSet="utf-8" />
-      <link rel="icon" href="/favicon.ico" />
-      <title>{title} | {subTitle}</title>
+      <link
+        rel="icon"
+        href="/favicon.png"
+        media="(prefers-color-scheme: dark)"
+      />
+      <link
+        rel="icon"
+        href="/favicon.svg"
+        media="(prefers-color-scheme: light)"
+      />
+      <title>
+        {title} | {subTitle}
+      </title>
     </Head>
   );
 };
