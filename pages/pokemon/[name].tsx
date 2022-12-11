@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import { FetchPokeDetails } from "../../api/swr/poke/FetchPokeDetails";
 import Image from "next/image";
 import { NoLinkBtn, Text } from "../../components";
-import { Button } from "../../components";
 
 const PokeDetail = () => {
   const router = useRouter();
 
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(true);
   const pokeName = router.query.name as string;
   const { data, isError } = FetchPokeDetails(pokeName);
+  const movesLength: number | undefined = data?.moves.length;
 
   if (isError) return <div>error</div>;
   if (!data) return <div>loading...</div>;
@@ -60,20 +60,18 @@ const PokeDetail = () => {
           Moves
         </Text>
         <div className="flex mt-1 flex-wrap mb-4">
-          {data.moves
-            .slice(0, showMore ? 15 : data.moves.length)
-            .map((data, key) => (
-              <Text
-                variant="p2"
-                key={key}
-                weight="semiBold"
-                className="mr-3 mt-2 px-2 py-1 rounded-lg text-black bg-stone-400"
-              >
-                {data.move.name}
-              </Text>
-            ))}
+          {data.moves.slice(0, showMore ? 15 : movesLength).map((data, key) => (
+            <Text
+              variant="p2"
+              key={key}
+              weight="semiBold"
+              className="mr-3 mt-2 px-2 py-1 rounded-lg text-black bg-stone-400"
+            >
+              {data.move.name}
+            </Text>
+          ))}
         </div>
-        {data.moves.length >= 15 && (
+        {(movesLength as number) >= 15 && (
           <NoLinkBtn onClick={() => setShowMore(!showMore)} border="border1">
             {showMore ? "show more" : "hide more"}
           </NoLinkBtn>
