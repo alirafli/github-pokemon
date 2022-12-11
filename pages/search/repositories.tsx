@@ -1,14 +1,23 @@
-import React from "react";
-import { RepoCard, Text } from "../../components";
+import React, { useState } from "react";
+import { NoLinkBtn, RepoCard, Text } from "../../components";
 import SearchLayout from "../../layouts/search";
 import { UseSearchContext } from "../../context/SearchContext";
 import { RepoProps } from "../../api/interface/search/repositories";
 import { FetchRepos } from "../../api/swr";
 
 const Repositories = () => {
+  const [page, setPage] = useState<number>(1);
   const { search } = UseSearchContext();
+  const { data, isError } = FetchRepos(search, page);
 
-  const { data, isError } = FetchRepos(search);
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
+
+  const handlePrevPage = () => {
+    setPage(page - 1);
+  };
+
   if (isError) return <div>error</div>;
   if (!data) return <div>loading...</div>;
   if (data.total_count === 0) return `there is no "${search}" Repositories`;
@@ -28,6 +37,16 @@ const Repositories = () => {
           html_url={data.html_url}
         />
       ))}
+      <div className="mx-auto w-fit my-10">
+        {page - 1 > 0 && (
+          <NoLinkBtn onClick={handlePrevPage} border="border1">
+            Prev
+          </NoLinkBtn>
+        )}
+        <NoLinkBtn onClick={handleNextPage} border="border1">
+          Next
+        </NoLinkBtn>
+      </div>
     </div>
   );
 };

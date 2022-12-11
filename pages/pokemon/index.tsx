@@ -19,15 +19,15 @@ const Pokemon = () => {
   if (isError) return <div>error</div>;
   if (!data) return <div>loading...</div>;
   return (
-    <div className="w-9/12 mx-auto">
+    <main className="w-9/12 mx-auto">
       <Text variant="h1" weight="semiBold">
         PokePedia
       </Text>
-      <div className="grid grid-cols-4 gap-11 w-fit mx-auto mt-10">
+      <section className="grid grid-cols-4 gap-11 w-fit mx-auto mt-10">
         {data.results.map((data: Result, key: number) => (
           <PokeCard key={key} name={data.name} />
         ))}
-      </div>
+      </section>
       <div className="mx-auto w-fit my-10">
         {page - 20 >= 0 && (
           <NoLinkBtn onClick={handlePrevPage} border="border1">
@@ -38,7 +38,7 @@ const Pokemon = () => {
           Next
         </NoLinkBtn>
       </div>
-    </div>
+    </main>
   );
 };
 
